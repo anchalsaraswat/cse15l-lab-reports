@@ -1,7 +1,7 @@
 # Lab Report 1
 ## CD command
 1. When no argument is passed the output is:
-   ![Image](Screenshot 2024-01-16 at 6.17.49 PM.png)
+   ![Image](http://Screenshot 2024-01-16 at 6.17.49 PM.png)
    The working directory when this command was run is /home. I got this output because the `cd` command with no arguments sets the workng directory to home which is already a given. This is not an error.
 2. When an argument to a directory is passed the output is
    ![Image](Screenshot 2024-01-16 at 6.18.09 PM.png)
