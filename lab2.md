@@ -4,7 +4,7 @@
 
 **ChatServer.java**
 
-
+```
 import java.io.IOException;
 import java.net.URI;
 
@@ -29,6 +29,9 @@ class Handler implements URLHandler {
     }
 }
 
+```
+```
+
 class ChatServer {
     public static void main(String[] args) throws IOException {
         if(args.length == 0) {
@@ -40,7 +43,7 @@ class ChatServer {
         Server.start(port, new Handler());
     }
 }
-...
+```
 
 |[Image](chatserver1.png)
 
