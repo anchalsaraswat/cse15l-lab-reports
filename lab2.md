@@ -56,10 +56,10 @@ class ChatServer {
 # Part 2
 
 Private Key
-|[Image](key-path-private.png)
+[Image](key-path-private.png)
 
 Public Key
-|[Image](key-path-public.png)
+[Image](key-path-public.png)
 
 Terminal No Password
 |[Image](no-pw.png)
