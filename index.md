@@ -3,7 +3,8 @@
 ## Part 1
 
 **ChatServer.java**
-...
+
+```
 import java.io.IOException;
 import java.net.URI;
 
@@ -28,6 +29,9 @@ class Handler implements URLHandler {
     }
 }
 
+```
+```
+
 class ChatServer {
     public static void main(String[] args) throws IOException {
         if(args.length == 0) {
@@ -39,29 +43,26 @@ class ChatServer {
         Server.start(port, new Handler());
     }
 }
-...
+```
 
-|[Image](chatserver1.png)
+[Image](chatserver1.png)
 
-- `handleReqest` called and the url is the argument
-- `chat` is updated from empty by concatenating string
+- `handleReqest` called and public String handleRequest(URI url) method is used which is the method in the Handler class. The argument is the url request which is a string and this determines what is done by the web server. The values that are changed are the return message which adds the newly entered string ("How are you") on the url and there's an incremeted number count from the previous message and the "num" variable, which represents a counter of the number of messages added increments by 1, when "How are you" is entered.
 
-|[Image](chatserver2.png)
+[Image](chatserver2.png)
 
-- `handleReqest` called and the url is the argument
-- `chat` is updated by concatenating string
-
+- `handleReqest` called and the argument is the url request as a string which determines the action that the web server does. The changed values includes the return message which gets the string that is entered on the url as input and the variable "num" which is a counter of the number of strings added and initializes to 1 when the first message is entered through the url.
 
 # Part 2
 
 Private Key
-|[Image](key-path-private.png)
+[Image](key-path-private.png)
 
 Public Key
-|[Image](key-path-public.png)
+[Image](key-path-public.png)
 
 Terminal No Password
-|[Image](no-pw.png)
+[Image](no-pw.png)
 
 # Part 3
 
