@@ -35,7 +35,7 @@ static void reverseInPlace(int[] arr) {
 ```
 **Output when Running JUnit test with bug in method:**
 
-![image]()
+<img width="927" alt="lab3pic1" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/10f43d12-3941-405c-8485-0ca7c64994f2">
 
 
 **Corrected Code:**
@@ -56,4 +56,4 @@ static void reverseInPlace(int[] arr) {
 
 **Output when Running JUnit test with corrected method:**
 
-<img width="827" alt="" src="">
+<img width="821" alt="lab3pic2" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/56e93631-0aee-4667-a1db-823b5aac1595">
