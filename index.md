@@ -192,4 +192,4 @@ technical/biomed/rr37.txt
 
 <img width="609" alt="lab3pic10" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/727b249f-ed2f-4951-9ecd-ad7f2b9fda2b">
 
-When grep is used with `-l`, a list of files that contain the string in the command is returned. In these examples, the first output we see 
+When grep is used with `-l`, a list of files that contain the string in the command is returned. In these examples, the first output we see is all the files that contain the string "Air Force One", and the second output has all the files that contain the string "nocturnal". This is helpful if we want to know which files contain a keyword/phrase we want to filter by so there's a smaller list of files and is easier to navigate. 
