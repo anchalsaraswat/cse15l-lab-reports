@@ -1,75 +1,80 @@
-# Anchal Saraswat CSE 15L Lab Report 4
+# Anchal Saraswat CSE 15L Lab Report 5
 
-## Step 1: Connect to ieng6
-
-Command: `ssh asaraswat@ieng6.ucsd.edu`
-
-**Keys Pressed:** *`<up> <up> <up> <up> <up> <up> <up> <up> <Enter>` 
-The `ssh asaraswat@ieng6.ucsd.edu` command was used 8 commands ago, I pressed the up arrow 8 times to get to that command and then ran to connect to ieng6
+## Part 1: Student EdStem Post
 
 
-<img width="780" alt="lab4pic1" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/c4d0a059-b109-42be-9554-67c5f95613d4">
+**Student Post:**
+
+List Reverse Method:
+
+<img width="418" alt="lab5_pic1" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/a731d086-4721-4102-b32e-00525c44f4b6">
+
+Test Output:
+
+<img width="893" alt="lab5_pic2" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/fd20b279-3a79-4f4d-9939-53975b2a5a91">
 
 
-## Step 2: Clone repository with SSH url
+Hi,
 
-Command: `git clone git@github.com:anchalsaraswat/lab7.git` `cd lab7`
-
-
-**Keys Pressed:** *`Ctrl-C: git clone git@github.com:anchalsaraswat/lab7.git` `Typed on command line: git clone` `Ctrl-V` `<Enter>`*
-I used `Ctrl-C` to copy the ssh clone URL from my forked lab7 Github repository and then pasted with `Ctrl-V` after the `git clone`. Then I pressed enter to run the completed command to clone the forked repository and then `cd lab7` to change the directory to the lab7 repo
+I'm a student taking CSE 15L this quarter and I'm running into issues when I'm trying to test my method that's supposed to reverse an array in place. When I run a Java file with JUnit, it outputs what's shown in the screenshot above. It shows that at the second index of the reversed array the expected value was 7 but the actual value was 9 which means that the method returned the wrong result. My assumption is that the input array is not being sorted properly since the last value of the original array is also the last value of the sorted array which is incorrect. I think the failure inducing input is an array of length greater than 1 and the bug is that when the method is sorting in place it's reusing values that have already been sorted at a specific index.
 
 
-<img width="549" alt="lab4pic2" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/2692d018-6e84-4187-af56-91444c9bd194">
+**TA Response:**
+
+Hello,
+
+My recommendation would be to run through a test of your ReverseInPlace method with an input array that has 2 or more values. This will help you understand what is going wrong since you will be running your method and keeping track of the values of the array you are reversing manually. You could also add some print statements to see which value is being swapped during each run of the loop and see if it's the correct value that should be at that index.
 
 
-## Step 3: Running JUnit Tests with ListExampleTests
+**Student Response:**
 
-Commands:
-1. `javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar`
+<img width="698" alt="lab5_pic3" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/3f746e3d-4636-44fd-be6f-cb96847e98f4">
 
-**Keys Pressed:** *`<up> <up> <up> <up> <up> <Enter>`* The `javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java` command was used 5 commands ago so I pressed the up arrow 5 times to get to that command and then ran 
+<img width="397" alt="Screenshot 2024-03-12 at 8 07 58 PM" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/c59c2119-dc74-435b-a47f-f603c289ffea">
 
-2. `java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests`
-   
-**Keys Pressed:** *`<up> <up> <up> <up> <up> <Enter>`* After running previous command to compile JUnit Test, the `java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests` was used 5 commands ago, so I pressed the up arrow 5 times to get to that command and then ran it to run ListExamplesTests
-   
-<img width="774" alt="lab4pic3" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/d0fb3cc4-d5d4-43e3-a9fb-2ca5d9d0190c">
-
-## Step 4: Edit the code to fix the failing test
-
-**Open File in vim before editing:** 
-
-**Keys Pressed:** `vim ListExamples.java` `<Enter>`
-
-**Edit ListExamples.java File in vim:**
-
-**Keys Pressed:** from cursor at top, left of the file: `329w`, `e`, `x`, `i`, `"2"`, `<esc>` `:wq`
-After opening ListExamples.java file in vim my cursor was at the top left of the file and I wanted to move the cursor to the line with the bug so I moved the cursor forward 329 words with `329w`, moved to the end of the current word "index" with `e` to land on "1" of `index1`. Then I pressed `x` to delete the "1", pressed `i` to enter insert mode, entered "2" to change the variable to `index2`.Then I pressed `<esc>` to go back to normal mode and then used `:wq` to save and exit the file.
-
-<img width="616" alt="lab4pic4" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/069ddadd-54e1-49c3-ada5-6b23ed561a7e">
+Thanks for the help! I decided to use print statements to see what was being replaced when the list is reversed using input {7, 8, 9}. I can see that everything is being correctly reversed except in the last run the code is swapping out 9 for 9, which is the symptom here. The list that is returned is {9, 8, 9} but it should be {9, 8, 7}. The bug here is that the array is incorrectly getting sorted because it ends up reusing indices that have already been sorted. It says "swaping 9 for 9" because when the code is at the last index it is using the first element in the sorted array which is 9. However, it’s supposed to be using the first element from the original array which is 7. 
 
 
-## Step 5: Run the tests to show that they now succeed
+**Information About Setup:**
 
-Commands: 
-1. `javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java`
+File and directory structure needed:
 
-**Keys Pressed:** `<up> <up> <up>` `<Enter>`
-The `javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java` command was used 3 commands ago so I pressed the up arrow 3 times to get to that command and then ran 
+<img width="787" alt="lab5_pic4" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/5deb82a5-e297-4474-8725-90513ed0b072">
 
+When I list constents,  I have the test.sh file which contains the commands to run JUnit tests that would run the ArrayTests.java file, the ArrayTests.java file which contains the code to test the ReverseInPlace method, and the ReverseInPlace method which is located in ArrayExamples.java.
 
-2. `java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests` 
+Content of Method File before fixing bug:
 
-**Keys Pressed:** `<up> <up> <up>` `<Enter>`
-After running the previous command to compile JUnit Test, the `java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore ListExamplesTests` was used 5 commands ago so I pressed the up arrow 5 times to get to that command and then ran it to run ListExamplesTests
-
-<img width="780" alt="lab4pic5" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/c217f142-6c34-4c36-9320-bfc36e77c5c2">
+<img width="409" alt="lab5_pic5" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/95bbe0ac-b1b8-40c9-9474-32e7a74ee231">
 
 
-## Step 6: Commit and push changes to Github
+Command I ran to trigger the bug:
 
-**Keys Pressed:** `git add ListExamples.java` `<Enter>` `git commit -m"changed var"` `<Enter>` `git push` `<Enter>`
-After debugging and making edits to ListExamples.java I need these changes to show on the remote repository on Github so I do `git add` from the command line to add `ListExamples.java` as a file to be included for the commit message and then I can create the commit with a message "changed var" through `git commit -m"changed var"`. Then I push the changes to my Github repository with `git push` and the edits I commited will show up on GitHub
+`bash test.sh`
 
-<img width="722" alt="lab4pic6" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/83496f79-b490-4d69-857b-8c8dc0c71369">
+bash.sh contains: 
+
+<img width="816" alt="lab5_pic6" src="https://github.com/anchalsaraswat/cse15l-lab-reports/assets/44505854/f35f9ca2-b072-4d7f-96ff-c98b45c96692">
+
+
+How to fix bug:
+
+
+To debug I used two pointers as indices of the array. Of these two, one starts at the 0th index and the second starts at the last index, then I swap these two values by saving the value of the left pointer in a variable and setting the value of left pointer to the right one. I then update the right pointer with the saved left value and increase left pointer by 1 and decrease right pointer by 1 which moves them closer to the center of the array. The loop then continues until both pointers reach the middle which means the array has been reversed.
+```
+static void reverseInPlace(int[] arr) {
+    int left = 0;
+    int right = arr.length - 1;
+    while (left < right) {
+        int val = arr[left];
+        arr[left] = arr[right];
+        arr[right] = val;
+        left++;
+        right--;
+    }
+}
+```
+
+## Part 2: Reflection:
+
+Something I learned from my lab experience in the second half of this quarter is how to use vim. Vim is very useful in debugging and it while it was tedious to learn commands and get used to making these commands second nature, they helped a lot when I wanted to open files on my computer and I didn't have VSCode or other platforms to use. Debugging is also a skill that is always needed in future classes and in the workplace so being able to step through a program and debug is something I found pretty cool and am glad I was able to learn.
